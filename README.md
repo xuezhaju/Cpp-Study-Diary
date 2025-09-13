@@ -20,7 +20,7 @@
 - I still prefer to dive right into the project.
 - 我还是喜欢直接上手做项目
 - Sometime write someting,but don't write markdown files again(maybe)
-
+- (主要原因是我想继续用godot开发游戏去了，c++以后学)
 
 ---
 ## 💡 名言
