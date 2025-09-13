@@ -14,23 +14,18 @@
 
 ---
 
+## I have decided to end write the Study Diary
+- Because I think the efficiency is too low.
+- 因为效率太低了
+- I still prefer to dive right into the project.
+- 我还是喜欢直接上手做项目
+
+
+---
 ## 💡 名言
 > "The only way to learn a new programming language is by writing programs in it." - Dennis Ritchie
 
 ---
 
-<div align="center">
 
-📝 *每周更新* | 🚀 *持续进步* | 💻 *代码人生*
-
-</div>
-
-<style>
-em {
-    color: #FF6B6B;
-    font-style: italic;
-}
-strong {
-    color: #4ECDC4;
-}
-</style>
+📝 *每周更新(caiguai)* | 🚀 *持续进步* | 💻 *代码人生*
