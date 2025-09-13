@@ -19,6 +19,7 @@
 - 因为效率太低了
 - I still prefer to dive right into the project.
 - 我还是喜欢直接上手做项目
+- Sometime write someting,but don't write markdown files again(maybe)
 
 
 ---
