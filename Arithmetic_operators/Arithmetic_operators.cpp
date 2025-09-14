@@ -39,7 +39,7 @@ int main() {
     cout << "Quotient3: " << quotient3 << endl;
 
     // Modulus
-    int remainder = a % b;
+    int remainder = a % b;   // Two decimals Cannot Use Modulus
     cout << "Remainder: " << remainder << endl;
 
     return 0;
