@@ -1,5 +1,14 @@
 #include <iostream>
 using namespace std;
+
+double divide(int a, int b) {
+    if (a == 0 || b == 0) {
+        cerr << "Error: Division by zero." << endl;
+        return 0; // Or handle the error as appropriate
+    }
+    return static_cast<double>(a) / b; //推荐
+}
+
 int main() {
     int a = 10;
     int b = 3;
