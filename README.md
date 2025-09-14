@@ -12,6 +12,8 @@
 
 🔗 [9月7日学习笔记](Markdown/9.7.md)
 
+🔗 [9月14日学习笔记](Markdown/9.14.md)
+
 ---
 
 ## I have decided to end write the Study Diary
