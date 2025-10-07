@@ -16,6 +16,13 @@
 
 ---
 
+## 📅 2024年10月
+
+🔗 [10月7日学习笔记](Markdown/10.7.md)
+
+---
+
+
 ## I have decided to end write the Study Diary
 - Because I think the efficiency is too low.
 - 因为效率太低了
