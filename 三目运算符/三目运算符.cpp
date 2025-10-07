@@ -8,7 +8,9 @@ int main(){
     int b = 6;
     int c = 0;
 
-    b >= a ? c = b : c = a ;
+    // b >= a ? c = b : c = a ;
+
+    c = (b >= a ? b : a );  //更好的写法
 
     cout << c << endl ;
     
