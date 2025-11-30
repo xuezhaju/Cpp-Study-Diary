@@ -25,6 +25,15 @@
 ---
 
 
+## 📅 2024年11月
+
+🔗 [11月30日学习笔记](Markdown/11.30.md)
+
+- 懒癌犯了，好久没学了qwq
+
+---
+
+
 ## 💡 名言
 > "The only way to learn a new programming language is by writing programs in it." - Dennis Ritchie
 
