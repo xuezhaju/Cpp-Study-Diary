@@ -5,26 +5,50 @@
 
 using namespace std;
 
-string turn_minu_to_h(int total_minutes) {
-    float h = total_minutes / 60.0;
-    int m = total_minutes % 60;
- 
-    string hour_str = (h < 10) ? "0" + to_string( int(8 - ceil(h)) ) : to_string( int(8 - ceil(h)) );
-    string minute_str = (m < 10) ? "0" + to_string( 60 - m ) : to_string( 60 - m );
-    
-    return hour_str + ":" + minute_str;
+void spend(int speed, int lucheng)
+{
+    int time = lucheng / speed;
+    int hour = time / 60;
+    int minutes = time % 60;
+    int st_hour;
+    int st_minutes;
+
+    if (hour <= 8)
+    {
+        st_hour = 8 - hour;
+        st_minutes = 60 - minutes;
+    }
+    else
+    {
+        st_hour = 12 - (hour - 8);
+        st_minutes = 60 - minutes;
+    }
+
+    if ((st_hour < 10) and (st_hour < 10))
+    {
+        cout << "0" << to_string(hour) << ":" << "0" << to_string(st_minutes);
+    }
+    else if ((st_hour < 10) and (st_hour > 10))
+    {
+        cout << "0" << to_string(hour) << ":" << to_string(st_minutes);
+    }
+    else if (((st_hour > 10) and (st_hour < 10)))
+    {
+        cout << to_string(hour) << ":" << "0" << to_string(st_minutes);
+    }
+    else if (((st_hour > 10) and (st_hour > 10)))
+    {
+        cout << to_string(hour) << ":" << to_string(st_minutes);
+    }
 }
 
-int main() {
-    float s, v;
+int main()
+{
+    int s;
+    int v;
     cin >> s >> v;
- 
-    int total_minutes = ceil(s / v);
 
-    total_minutes += 10;
+    spend(v, s);
 
-    string time_str = turn_minu_to_h(total_minutes);
-    cout << time_str << endl;
-    
     return 0;
 }
