@@ -1,16 +1,42 @@
 {
-    // 使用 IntelliSense 了解相关属性。 
-    // 悬停以查看现有属性的描述。
-    // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Launch",
-            "type": "lldb",
+            "name": "C++ Run Only",
+            "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceRoot}/<your program>",
+            "program": "${fileDirname}/${fileBasenameNoExtension}",
             "args": [],
-            "cwd": "${workspaceRoot}"
+            "stopAtEntry": false,
+            "cwd": "${fileDirname}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "Disable breakpoints",
+                    "text": "-exec set breakpoint pending off",
+                    "ignoreFailures": true
+                }
+            ],
+            "preLaunchTask": "g++ build active file",
+            "miDebuggerPath": "/usr/bin/gdb",
+            "noDebug": true // 关键！这表示只是运行，不调试
+        },
+        {
+            "name": "C++ Run with Output",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${fileDirname}/${fileBasenameNoExtension}",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${fileDirname}",
+            "environment": [],
+            "externalConsole": true, // 使用外部终端，可以看到完整输出
+            "MIMode": "gdb",
+            "preLaunchTask": "g++ build active file",
+            "miDebuggerPath": "/usr/bin/gdb",
+            "noDebug": true
         }
     ]
 }
