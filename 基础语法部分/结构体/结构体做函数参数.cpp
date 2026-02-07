@@ -9,6 +9,8 @@ using namespace std;
 2.地址传递
 */
 
+//////   不想修改实参用值传递，反之用地址传递   /////////
+
 struct Student
 {
     string name;
