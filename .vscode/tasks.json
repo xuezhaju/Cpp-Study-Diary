@@ -13,7 +13,8 @@
                 "-std=c++17",
                 "-Wall",
                 "-Wextra",
-                "-O0"
+                "-O0",
+                "-lncurses"
             ],
             "group": {
                 "kind": "build",

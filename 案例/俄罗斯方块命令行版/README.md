@@ -28,9 +28,26 @@
 - `L`：表示宽字符串字面量的前缀，例如 `L"Hello"` 表示一个宽字符串。
 - `@param`：Doxygen 注释中的标签，用于描述函数参数。
 - `@return`：Doxygen 注释中的标签，用于描述函数的返回值
+- `unsigned char`：无符号字符类型，表示一个字节的字符数据，范围从 0 到 255。
+- `nullptr`：空指针常量，表示一个空指针，通常用于指针初始化或表示没有有效对象。
+- `new`：用于动态分配内存，创建对象或数组，并返回指向新分配内存的指针。
 
 ## 3.单词
 | 单词 | 词性 | 释义 |
 | tetromino | n. | 四格方块 |
 
 ## 4. 遇到的问题和解决方法
+在 Arch Linux 上，你需要用 `ncurses` 库来替代 Windows 下的 `<windows.h>` 实现命令行界面。下面我来详细说明如何迁移你的项目。
+
+## 🔄 核心替代方案：ncurses 库
+
+`ncurses` 是 Linux/Unix 系统下控制终端的标准库，功能和你教程中 `windows.h` 的 console 操作类似：
+
+| Windows 功能 | ncurses 替代方案 |
+|------------|-----------------|
+| `system("cls")` | `clear()` 或 `erase()` |
+| `gotoxy(x,y)` | `move(y,x)` 或 `mvprintw(y,x, ...)` |
+| `SetConsoleTextAttribute` | `attron(COLOR_PAIR(n))` / `attroff()` |
+| `_kbhit()` / `_getch()` | `getch()`（需配合 `cbreak()` 和 `noecho()`） |
+| 控制台缓冲区 | `stdscr` 窗口缓冲区 |
+
