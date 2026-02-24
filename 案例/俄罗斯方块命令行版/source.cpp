@@ -8,6 +8,7 @@ using namespace std;
 wstring tetromino[7]; // 7种经典俄罗斯方块形状
 int nFieldWidth = 12;
 int nFieldHeight = 18;
+bool bGameOver = false;
 unsigned char *pField = nullptr;
 
 /**
@@ -130,8 +131,14 @@ void GameLogic()
 {
 }
 
-void gInputEven()
+void InputEven()
 {
+    // 处理按键
+    int key = getch();
+    if (key == 'q' || key == 'Q')
+    {
+        bGameOver = true;
+    }
 }
 
 int main()
@@ -153,7 +160,10 @@ int main()
     // 初始化ncurses（只调用一次）
     initNcurses();
 
-    bool bGameOver = false;
+    int nCurrentPiece = 0;
+    int nCurrentRotation = 0;
+    int nCurrentX = nFieldWidth / 2;
+    int nCurrentY = 0;
 
     // 修正：根据cellValue索引字符
     // 0: 空格 (空白区域)
@@ -166,18 +176,49 @@ int main()
         clear();
 
         // 绘制场地
-        for (int x = 0; x < nFieldWidth; x++)
+        for (int px = 0; px < nFieldWidth; px++)
         {
-            for (int y = 0; y < nFieldHeight; y++)
+            for (int py = 0; py < nFieldHeight; py++)
             {
-                int cellValue = pField[y * nFieldWidth + x];
+                int cellValue = pField[py * nFieldWidth + px];
 
                 wchar_t ch = cellChars[cellValue]; // 现在用cellValue作为索引
 
                 // 绘制到屏幕, + 是为了不紧贴边框
-                mvaddch(y + 2, x + 2, ch);
+                mvaddch(py + 2, px + 2, ch);
             }
         }
+
+        // 绘制当前方块
+        // 绘制当前方块 - 正在下落的方块
+        for (int px = 0; px < 4; px++) // ✅ 只遍历方块的4列
+        {
+            for (int py = 0; py < 4; py++) // ✅ 只遍历方块的4行
+            {
+                // 计算旋转后的索引，并检查这个格子是否是实心的
+                int pi = Rotate(px, py, nCurrentRotation);
+
+                // 如果是实心格子(L'X')
+                if (tetromino[nCurrentPiece][pi] == L'X')
+                {
+                    // 计算这个格子在场地中的实际位置
+                    int fieldX = nCurrentX + px; // 方块左上角X + 格子在方块内的偏移
+                    int fieldY = nCurrentY + py; // 方块左上角Y + 格子在方块内的偏移
+
+                    // 确保在场地范围内（防止画出边界）
+                    if (fieldX >= 0 && fieldX < nFieldWidth &&
+                        fieldY >= 0 && fieldY < nFieldHeight)
+                    {
+                        // 绘制到屏幕（+2是边距）
+                        // 使用 'A' + nCurrentPiece 来显示不同的字母
+                        // I型(0)显示'A', O型(1)显示'B', T型(2)显示'C', 以此类推
+                        mvaddch(fieldY + 2, fieldX + 2, 'A' + nCurrentPiece);
+                    }
+                }
+            }
+        }
+
+        InputEven();
 
         // 添加一些提示文字
         mvprintw(0, 0, "俄罗斯方块 - 按 'q' 退出");
@@ -185,13 +226,6 @@ int main()
 
         // 刷新显示
         refresh();
-
-        // 处理按键
-        int key = getch();
-        if (key == 'q' || key == 'Q')
-        {
-            break; // 退出游戏循环
-        }
     }
 
     // 清理ncurses

@@ -32,9 +32,17 @@
 - `nullptr`：空指针常量，表示一个空指针，通常用于指针初始化或表示没有有效对象。
 - `new`：用于动态分配内存，创建对象或数组，并返回指向新分配内存的指针。
 
+语法：
+```tetromino[7]; pi = tettromino[0][fi]```:对一个一维数组进行两侧访问，`tettromino[0]` 访问二维数组的第一行，`fi` 作为索引访问该行中的元素。最终结果是获取 `tettromino` 数组中第一行第 `fi` 个元素的值，并将其赋值给 `pi` 变量。
+
 ## 3.单词
 | 单词 | 词性 | 释义 |
 | tetromino | n. | 四格方块 |
+| current | adj. | 当前的 |
+| rotation | n. | 旋转 |
+| index | n. | 索引 |
+| coordinate | n. | 坐标 |
+| calculate | v. | 计算 |
 
 ## 4. 遇到的问题和解决方法
 在 Arch Linux 上，你需要用 `ncurses` 库来替代 Windows 下的 `<windows.h>` 实现命令行界面。下面我来详细说明如何迁移你的项目。
