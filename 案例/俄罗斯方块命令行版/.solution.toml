@@ -1,0 +1,9 @@
+[俄罗斯方块]
+entry_point = "/home/l0rax/Program/CPP/Cpp-Study-Diary/案例/俄罗斯方块命令行版/source.cpp"  # 改成你的实际路径
+output = "/home/l0rax/Program/CPP/Cpp-Study-Diary/案例/俄罗斯方块命令行版/source"
+arguments = ""
+compiler_flags = "-lncurses -pthread"
+
+[SOLUTION]
+# 可选：编译完成后要执行的程序
+executable = "/home/l0rax/Program/CPP/Cpp-Study-Diary/案例/俄罗斯方块命令行版/source"
