@@ -1,0 +1,9 @@
+# 代码注释英文对照表
+- document:文件
+- element:元素
+- canvas:画布
+- render:渲染
+- gauge:量规
+- dimension:维度
+- loop:循环
+- component:组件
