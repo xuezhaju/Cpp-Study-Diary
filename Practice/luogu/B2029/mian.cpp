@@ -8,7 +8,7 @@ int r;
 
 int result;
 
-float pi = 3.14;
+double pi = 3.14;
 
 int main(){
 	std::cin >> h >> r;
@@ -23,5 +23,5 @@ int main(){
 
 	std::cout << result;
 
-	return result;
+	return 0;
 }
